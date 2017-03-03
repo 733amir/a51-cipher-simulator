@@ -57,6 +57,7 @@ div.registers
 {
     background: #FFE9C0 url('./background.png') no-repeat;
     background-position: 7px 5px;
+    background-size: 1035px 400px;
     border: 1px dashed black;
     padding: 10px;
     margin: 10px 0 10px 0;

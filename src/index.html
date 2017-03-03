@@ -4,7 +4,7 @@
 
     <!-- Simulator version: 1.2 (CrypTool-Anpassung) -->
 
-    <title>Interaktive Online-Simulation der A5/1-Chiffre</title>
+    <title>Interactive Online Simulation of the A5/1 Cipher</title>
     <meta charset="UTF-8" />
 
     <link rel="stylesheet" href="./resources/styles.css">
@@ -23,36 +23,35 @@
 
 <body>
 
-    <h1>Interaktive Online-Simulation der A5/1-Chiffre</h1>
-    <p>für das Fach &quot;IT-Sicherheit mobiler Systeme&quot; an der <a href="https://www.hochschule-trier.de/">Hochschule Trier</a>.</p>
+    <h1>Interactive Online Simulation of the A5/1 Cipher</h1>
 
     <div class="highlighted">
 
-        A5/1 ist eine Stromchiffre, die 1987 entwickelt wurde, um die Sprachkommunikation in Mobilfunknetzen nach dem GSM-Standard zu schützen. Sie gilt inzwischen als gebrochen.
+        A5/1 is a cipher developed in 1987 to protect the voice communication in mobile networks according to the GSM standard. It is now regarded as <b>broken</b>.
 
-        <p>Dies ist eine vereinfachte Simulation der Chiffre (ohne den "Frame Counter"-Schritt vor der Registerinitialisierung). Sie besteht aus drei aufeinander folgenden Schritten:</p>
+        <p>This is a simplified simulation of the cipher (without the "frame counter" step before register initialization). It consists of three steps:</p>
 
         <ol>
-            <li>Zunächst muss der Schlüssel vollständig eingelesen werden (64 Einzelschritte, da 64 Bit)</li>
-            <li>Dann wird das Register initialisiert (100 Einzelschritte)</li>
-            <li>Nun kann ein beliebig langer Schlüsselstrom erzeugt werden</li>
+            <li>The key must first be read in completely (64 single steps since 64 bits)</li>
+            <li>Then the register is initialized (100 single steps)</li>
+            <li>An arbitrarily long key stream can now be generated</li>
         </ol>
 
-        Der Schlüsselstrom wird beim Sender mit dem Klartext verknüpft (XOR) und dadurch der Geheimtext gebildet, der dann übertragen werden kann. Beim Empfänger wird der gleiche Schlüsselstrom gebildet und dieser dann mit dem Geheimtext verknüpft, um daraus wieder der Klartext erhalten.
+        The key stream is linked to the plaintext (XOR) at the sender and thus the secret text is formed, which can then be transmitted. The same key stream is formed at the receiver, which is then linked to the secret text, in order to receive the clear text again.
 
-        <p><strong>Tipp:</strong> Wenn man bei den Schritten nicht hunderte Male klicken möchte, dann setzt man z.B. mit einem Klick auf den gewünschten Button den Fokus und kann daraufhin mit gehaltenen Enter-Taste weiterlaufen.</p>
+        <p><strong>Tip:</strong> If you don't want to click many times, then you can click on the desired button and then continue with the Enter key instead of clicking mouse left key.</p>
 
     </div>
 
     <div class="highlighted">
 
-        <h2>Verwendeter Schlüssel (64 Bit)</h2>
+        <h2>The Key (64 bit)</h2>
         <p id="key"></p>
 
-        <input type="submit" id="initializeKeyButton" value="(1) Schlüssel einlesen &raquo;" />
-        <input type="submit" id="initializeRegisterButton" value="(2) Register initialisieren &raquo;" disabled="disabled" />
+        <input type="submit" id="initializeKeyButton" value="(1) Reading Key &raquo;" />
+        <input type="submit" id="initializeRegisterButton" value="(2) Registers Initialization &raquo;" disabled="disabled" />
         <span id="registerInitializationCount">0/100</span>
-        <input type="submit" id="generateStreamButton" value="(3) Schlüsselstrom erzeugen &raquo;" disabled="disabled" />
+        <input type="submit" id="generateStreamButton" value="(3) Generate Keystream &raquo;" disabled="disabled" />
 
         <p style="color: blue;">maj(<span style="color: red;">x<sub>8</sub></span>, <span style="color: red;">y<sub>10</sub></span>, <span style="color: red;">z<sub>10</sub></span>) = maj(<span style="color: red;" id="maj_x">0</span>, <span style="color: red;" id="maj_y">0</span>, <span style="color: red;" id="maj_z">0</span>)
         = <span id="majResult" style="font-weight: bold;">0</span></p>
@@ -60,7 +59,7 @@
     </div>
 
     <div class="highlighted">
-        <h2>Schlüsselstrom (<span id="generatedStreamCount">0</span> Bit erzeugt)</h2>
+        <h2>Keystream (<span id="generatedStreamCount">0</span> bits generated)</h2>
         <p id="keystream"></p>
     </div>
 
@@ -242,11 +241,11 @@
 
         </div>
 
-        <p><strong>Erklärung:</strong> Ein <span style="color: blue;">blaues Register</span> zeigt an, dass das Register im nächsten Schritt weitergeschoben wird, da dessen <span style="color: red;">roter Registerwert</span> der maj()-Funktion entspricht und das Register somit &quot;im Takt&quot; (engl. &quot;clocked&quot;) ist. Ansonsten wird das Register nicht weitergeschoben.</p>
+        <p> <strong>Explanation:</strong> Blue register names, indicate that this register stepped. </p>
 
     </div>
 
-    <p>Umgesetzt von <a href="https://sicherheitskritisch.de/">Bastian Raschke</a> und <a href="https://sicherheitskritisch.de/">Nils Tegetmeyer</a> im Sommersemester 2015. Inspiriert an dem <a href="https://www.youtube.com/watch?v=LgZAI3DdUA4">Video</a> von Jiri Matousek.</p>
+    <p>Implemented by <a href="https://sicherheitskritisch.de/">Bastian Raschke</a> and <a href="https://sicherheitskritisch.de/">Nils Tegetmeyer</a> and <a href="https://www.linkedin.com/in/amirkhazaie/">Amir Khazaie</a>.</p>
 
     <script>
 
